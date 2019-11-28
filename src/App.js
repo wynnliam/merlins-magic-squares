@@ -58,6 +58,14 @@ class Game extends React.Component {
 		};
 	}
 
+	markSquare(i) {
+		let currSquares = this.state.squaresStates.slice();
+		currSquares[i] = !currSquares[i];
+		this.setState({
+			squareStates : currSquares
+		});
+	}
+
 	render() {
 		return(<Board
 			squareStates = {this.state.squareStates}
