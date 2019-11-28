@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function Square(props) {
+	let color = props.isActive === true ? "#ff0000" : "#0000ff";
+
 	return(
-		<button className="square">
+		<button style={{"background-color": color}}>
 			.
 		</button>
 	);
@@ -26,18 +28,18 @@ class Board extends React.Component {
 			<div>
 				<div className="board-row">
 					{this.renderSquare(0)}
-					<Square />
-					<Square />
+					{this.renderSquare(1)}
+					{this.renderSquare(2)}
 				</div>
 				<div className="board-row">
-					<Square />
-					<Square />
-					<Square />
+					{this.renderSquare(3)}
+					{this.renderSquare(4)}
+					{this.renderSquare(5)}
 				</div>
 				<div className="board-row">
-					<Square />
-					<Square />
-					<Square />
+					{this.renderSquare(6)}
+					{this.renderSquare(7)}
+					{this.renderSquare(8)}
 				</div>
 			</div>
 		);
