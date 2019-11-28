@@ -15,11 +15,17 @@ class Board extends React.Component {
 		super(props);
 	}
 
+	renderSquare(i) {
+		return(<Square 
+			isActive = {this.props.squareStates[i]}
+		/>);
+	}
+
 	render() {
 		return(
 			<div>
 				<div className="board-row">
-					<Square />
+					{this.renderSquare(0)}
 					<Square />
 					<Square />
 				</div>
@@ -39,8 +45,21 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+	constructor(props) {
+		super(props);
+
+		// A fancy way of generating an array of nine random floats between 0 and 1,
+		// and saying the ones > 0.5 are true and the rest false. The "true" state is red
+		// and the "false" state is blue"
+		this.state = {
+			squareStates: Array.from({length: 9}, () => Math.random()).map(x => x > 0.5)
+		};
+	}
+
 	render() {
-		return(<Board />);
+		return(<Board
+			squareStates = {this.state.squareStates}
+		/>);
 	}
 }
 
