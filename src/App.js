@@ -4,19 +4,43 @@ import './App.css';
 
 function Square(props) {
 	return(
-		<button className="square" color="red">
-			A
+		<button className="square">
+			.
 		</button>
 	);
 }
 
-class Game extends React.Component {
+class Board extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-		return(Square());
+		return(
+			<div>
+				<div className="board-row">
+					<Square />
+					<Square />
+					<Square />
+				</div>
+				<div className="board-row">
+					<Square />
+					<Square />
+					<Square />
+				</div>
+				<div className="board-row">
+					<Square />
+					<Square />
+					<Square />
+				</div>
+			</div>
+		);
+	}
+}
+
+class Game extends React.Component {
+	render() {
+		return(<Board />);
 	}
 }
 
