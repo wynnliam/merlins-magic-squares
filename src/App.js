@@ -62,6 +62,63 @@ class Game extends React.Component {
 	markSquare(i) {
 		let currSquares = this.state.squareStates.slice();
 		currSquares[i] = !currSquares[i];
+
+		switch(i) {
+			case 0: // Top left
+				currSquares[1] = !currSquares[1];
+				currSquares[3] = !currSquares[3];
+				currSquares[4] = !currSquares[4];
+				break;
+
+			case 1: // Top middle
+				currSquares[0] = !currSquares[0];
+				currSquares[2] = !currSquares[2];
+				break;
+
+			case 2: // Top right
+				currSquares[1] = !currSquares[1];
+				currSquares[4] = !currSquares[4];
+				currSquares[5] = !currSquares[5];
+				break;
+
+			case 3: // Middle left
+				currSquares[0] = !currSquares[0];
+				currSquares[6] = !currSquares[6];
+				break;
+
+			case 4: // Middle middle
+				currSquares[1] = !currSquares[1];
+				currSquares[3] = !currSquares[3];
+				currSquares[5] = !currSquares[5];
+				currSquares[7] = !currSquares[7];
+				break;
+
+			case 5: // Middle right
+				currSquares[2] = !currSquares[2];
+				currSquares[8] = !currSquares[8];
+				break;
+
+			case 6: // Bottom left
+				currSquares[3] = !currSquares[3];
+				currSquares[4] = !currSquares[4];
+				currSquares[7] = !currSquares[7];
+				break;
+
+			case 7: // Bottom middle
+				currSquares[6] = !currSquares[6];
+				currSquares[8] = !currSquares[8];
+				break;
+
+			case 8: // Bottom right
+				currSquares[4] = !currSquares[4];
+				currSquares[5] = !currSquares[5];
+				currSquares[7] = !currSquares[7];
+				break
+
+			default:
+				break;
+		}
+
 		this.setState({
 			squareStates : currSquares
 		});
