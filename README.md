@@ -1,3 +1,16 @@
+# Merlin's Magic Squares
+In this project, I wanted to dabble in React. I hope to beef up my web dev skills in the
+next few weeks. I figured for a purely front-end application, Merlin's Magic Squares would
+be a good choice for learning.
+
+So what is Merlin's Magic Squares? Merlin's Magic Squares is a simple game played on a 3x3 tile grid.
+When you click a square, its color changes. However, depending on the square you clicked, the squares
+around it change accordingly. Here is a great picture of the rules:
+
+![image](https://www.cut-the-knot.org/ctk/m_moves.gif)
+
+The goal is to get the middle square to be blue and the outter squares to be red.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
