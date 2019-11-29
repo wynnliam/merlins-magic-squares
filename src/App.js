@@ -55,7 +55,8 @@ class Game extends React.Component {
 		// and saying the ones > 0.5 are true and the rest false. The "true" state is red
 		// and the "false" state is blue"
 		this.state = {
-			squareStates: Array.from({length: 9}, () => Math.random()).map(x => x > 0.5)
+			squareStates: Array.from({length: 9}, () => Math.random()).map(x => x > 0.5),
+			isComplete: false
 		};
 	}
 
@@ -119,16 +120,31 @@ class Game extends React.Component {
 				break;
 		}
 
+		let finish = currSquares[0] === true && currSquares[1] === true && currSquares[2] === true &&
+				     currSquares[3] === true && currSquares[4] === false && currSquares[5] === true &&
+				     currSquares[6] === true && currSquares[7] === true && currSquares[8] === true;
+
 		this.setState({
-			squareStates : currSquares
+			squareStates : currSquares,
+			isComplete : finish
 		});
 	}
 
 	render() {
-		return(<Board
-			squareStates = {this.state.squareStates}
-			onClick = {(i) => this.markSquare(i)}
-		/>);
+		let status = this.state.isComplete ? "You win!" : "Not yet!";
+
+		return(
+			<div className="game">
+				<Board
+					squareStates = {this.state.squareStates}
+					onClick = {(i) => this.markSquare(i)}
+				/>
+
+				<div>
+					{status}
+				</div>
+			</div>
+		);
 	}
 }
 
