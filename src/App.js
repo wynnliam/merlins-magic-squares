@@ -6,7 +6,7 @@ function Square(props) {
 	let color = props.isActive === true ? "#ff0000" : "#0000ff";
 
 	return(
-		<button style={{"background-color": color}}>
+		<button style={{"backgroundColor": color}} onClick={props.onClick}>
 			.
 		</button>
 	);
@@ -20,6 +20,7 @@ class Board extends React.Component {
 	renderSquare(i) {
 		return(<Square 
 			isActive = {this.props.squareStates[i]}
+			onClick = {() => this.props.onClick(i)}
 		/>);
 	}
 
@@ -59,7 +60,7 @@ class Game extends React.Component {
 	}
 
 	markSquare(i) {
-		let currSquares = this.state.squaresStates.slice();
+		let currSquares = this.state.squareStates.slice();
 		currSquares[i] = !currSquares[i];
 		this.setState({
 			squareStates : currSquares
@@ -69,6 +70,7 @@ class Game extends React.Component {
 	render() {
 		return(<Board
 			squareStates = {this.state.squareStates}
+			onClick = {(i) => this.markSquare(i)}
 		/>);
 	}
 }
